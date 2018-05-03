@@ -22,7 +22,8 @@
 	<hr>
 	<marquee>飘~~~</marquee>
 	<br>
-	<i>这几种强调 </i><strong>有什么</strong><b> 区别呢？</b><u>这个呢？</u><em>这个呢？</em>
+	<em>这几种强调</em><strong>有什么</strong><b> 区别呢？</b><u>这个呢？</u><i>这个呢？</i>
+	<!-- 这是一条注释 -->
 	<p>html的注释怎么写？</p>
 	<p>下面是一段JavaScript代码，最合适用何种标签表示呢？</p>
 		<pre>
@@ -73,7 +74,7 @@
 	</form>
 	<hr>
 	<div>
-		<formcontrol>
+		<form>
 			<dl>个人信息调查表</dl>
 			<dt>性别</dt>
 			<dd><label><input type="radio">男</label><label><input type="radio">女</label></dd>
@@ -110,57 +111,66 @@
 				<input> <input> <input> <input>
 			</fieldset>
 			<button>提交</button>
-			<button>重置</button>
-		</formcontrol>
+			<button type="reset">重置</button>
+		</form>
 	</div>
 	<hr>
 	<div>
 		<table border="1">
 			<caption>货品列表</caption>
-			<tr>
+			<colgroup>
+				<col>
+				<col bgcolor="red">
+				<col>
+				<col>
+			</colgroup>
+			<thead><tr>
 				<th>编号</th>
-				<th bgcolor="red">品名</th>
+				<th>品名</th>
 				<th>进价</th>
 				<th>出价</th>
-			</tr>
-			<tr>
+			</tr></thead>
+			<tbody><tr>
 				<th>001</th>
-				<td bgcolor="red">苹果</td>
+				<td>苹果</td>
 				<td rowspan="2">5</td>
 				<td>8</td>
 			</tr>
 			<tr>
 				<th>001</th>
-				<td bgcolor="red">桔子</td>
+				<td>桔子</td>
 				<td>8</td>
 			</tr>
 			<tr>
 				<th>001</th>
-				<td bgcolor="red">香蕉</td>
+				<td>香蕉</td>
 				<td>5</td>
 				<td>8</td>
 			</tr>
 			<tr>
 				<th>001</th>
-				<td bgcolor="red">山竹</td>
+				<td>山竹</td>
 				<td>5</td>
 				<td>8</td>
-			</tr>
+			</tr></tbody>
 		</table>
 	</div>
 	<hr>
 	<div>
-		<img src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" width="300" height="450" usemap="owl" alt="image title">
+		<img src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" width="300" height="450" usemap="owl" title="image title">
 		<map name="owl">
-			<area shape="rect" coords="91,100,200,200" href="https://www.mi.com/" alt="abc" target="_blank">
-			<area shape="circle" coords="100,300,100" href=""  target="_blank">
+			<area shape="rect" coords="55,100,200,200" href="https://www.mi.com/" title="abc" target="_blank">
+			<area shape="circle" coords="100,300,100" href="#">
+			<area shape="poly" coords="55,84,7,266,160,398,226,255,184,83" href="#">
 		</map>
 	</div>
 	<hr>
 	<div id="bottom">
-		<a href="">点击我会在下面的frame里打开小米商城，但为什么打不开呢？</a>
+		<a href="https://www.mi.com/" target="iframe">点击我会在下面的frame里打开小米商城，但为什么打不开呢？</a>
 		<br>
-		<iframe src="https://nodejs.org/en"></iframe>
+		<iframe src="https://nodejs.org/en" name="iframe">
+			<p>您的浏览器不支持框架</p>
+		</iframe>
 	<br>
 	怎样&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这两个字之间空这么大呢?
 		<br>
