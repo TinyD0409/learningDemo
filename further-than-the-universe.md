@@ -28,27 +28,27 @@
 * HTML标签
 
 
-  <!DOCTYPE HTML>
-  <html>
-  <head>
-  <meta charset="UTF-8">
-  <title></title>
-  </head>
-  <body>
-    <div>
-      <img src="", alt="", scrset="">
-      <p>
-        <a href="">
-        <em></em>
-        <strong></strong>
-      </p>
-      <ul>
-        <li>
-        </li>
-      </ul>
-    </div>
-  </body>
-  </html>
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    </head>
+    <body>
+      <div>
+        <img src="", alt="", scrset="">
+        <p>
+          <a href="">
+          <em></em>
+          <strong></strong>
+        </p>
+        <ul>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </body>
+    </html>
 
 
 
