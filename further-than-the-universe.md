@@ -27,27 +27,27 @@
 
 * HTML标签
 
-```html
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta charset="UTF-8">
-<title></title>
-</head>
-<body>
-  <div>
-    <img src="", alt="", scrset="">
-    <p>
-      <a href="">
-      <em></em>
-      <strong></strong>
-    </p>
-    <ul>
-      <li>
-      </li>
-    </ul>
-  </div>
-</body>```
+
+    <!DOCTYPE HTML>
+    <HTML>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    </head>
+    <body>
+      <div>
+        <img src="", alt="", scrset="">
+        <p>
+          <a href="">
+          <em></em>
+          <strong></strong>
+        </p>
+        <ul>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </body>
 
 
 
@@ -84,11 +84,13 @@ Hello May！
 
 总之状态不是很好￣へ￣
 
+
 #### 前端学习第五天2018-05-02
 
 Gitbash复习
 
 HTML标签学习
+
 
 #### 前端学习第六天2018-05-03
 
@@ -102,8 +104,36 @@ frameset 是个好东西
 
 总是不会做的时候才知道原来这个东西是有用的
 
-#,;''一个符号也可以引发血案
+\#,;''一个符号也可以引发血案
 
 不下水永远不知道自己其实还不会游泳
 
 有些东西你没用不代表人家没用
+
+####大喵培训第七天2018-05-04
+
+CSS选择器的应用
+
+css dinner （github小游戏）。在CSS中一个空格代表的意思都不一样。
+
+让我们用CSS选择器筛选素数吧~~
+（CSS这种原始环境写代码里要考虑n=0和n=1等的各种情况，不会有东西帮助你限制条件的，叫破喉咙还不如带入自己试一下。没什么是代入法解决不了的数学问题，如果有就动笔再带入一轮o(*￣︶￣*)o
+
+####大喵培训第八天2018-05-05
+
+CSS选择器的优先级、继承问题。
+!important
+
+CSS中的值和单位问题
+
+####2018-05-06
+
+自习。
+
+复习了HTML标签
+
+####2018-05-07
+
+自习。
+
+复习CSS的选择器、单位、继承相关。
