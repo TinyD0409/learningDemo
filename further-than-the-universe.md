@@ -29,7 +29,7 @@
 
 
   <!DOCTYPE HTML>
-  <HTML>
+  <html>
   <head>
   <meta charset="UTF-8">
   <title></title>
@@ -48,6 +48,7 @@
       </ul>
     </div>
   </body>
+  </html>
 
 
 
