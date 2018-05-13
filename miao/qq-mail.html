@@ -29,6 +29,7 @@ nav,div{
 nav{
 	box-sizing: border-box;
 	height: 100px;
+	background-color: lightgrey;
 }
 main{
 	box-sizing: border-box;
@@ -38,6 +39,14 @@ main{
 div:first-child{
 	width: 220px;
 	height: 100%;
+	background-color: pink;
+}
+div:last-child{
+	background-color: lightblue;
+	margin-left:220px;
+	width: calc(100% - 220px);
+	height: 100%;
+	margin-top: calc(104px - 100vh);
 }
 
 </style>
