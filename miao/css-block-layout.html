@@ -5,89 +5,108 @@
 	<meta charset="UTF-8">
 <style>
 	body{
-	padding: 2px;
-	font: 16px sans-serif;
-}
-nav{
-	background-color: black;
-	height: 20px;
-	padding: 0;
-	margin: 0;
-}
-section{
-	padding: 0;
-	margin: 0;
-	width: 600px;
-	margin-left: auto;
-	margin-right: auto;
-}
-header{
-	color: white;
-	margin-top: -20px;
+		margin : 0;
+		font: 16px sans-serif;
+	}
+	header{
+		background-color: black;
+		margin: 0;
+		color: white;
+		padding-left: calc(50% - 300px);
+		padding-right: calc(50% - 300px);
+	}
 
-}
-main{
-	margin: 15px 0;
-}
-li{
-	list-style-type: none;
-}
-div>ul{
-	margin: 0;
-	padding: 0;
-}
-div>ul>li{
-	border: 3px solid;
-	width: 174px;
-	height: 16px;
-	margin: 15px 30px 15px 0px;
-	background-color: pink;
-	padding-top: 9px;
-	padding-bottom: 9px;
-	padding-left: 0; 
-
-}
-div>ul>li:hover{
-	background-color: red;
-}
-div>ul>li:nth-of-type(n+5){
-	margin-left: 210px;
-}
-div>ul>li:nth-of-type(n+9){
-	margin-left: 420px;
-}
-div>ul>li:nth-child(4n+5){
-	margin-top: -220px;
-}
-div+ul{
-	padding: 0;
-	margin: 15px 0;
-	overflow: hidden;/*overflow改变了ul的结束位置*/
-}
-div+ul>li{
-	border-bottom: 1px dotted black;
-	margin-bottom: -1px;
-}
-footer{
-	background-color: violet;
-	height: 40px;
-	padding: 0;
-	margin: 0;
-}
-p{
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
+	section{
+		padding: 0;
+		margin: 0;
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	main{
+		margin: 15px 0;
+	}
+	li{
+		list-style-type: none;
+	}
+	div>ul{
+		margin: 0;
+		padding: 0;
+	}
+	div>ul>li{
+		border: 3px solid;
+		width: 174px;
+		height: 16px;
+		margin: 15px 30px 15px 0px;
+		background-color: pink;
+		padding-top: 9px;
+		padding-bottom: 9px;
+		padding-left: 0; 
+	
+	}
+	div>ul>li:hover{
+		background-color: red;
+	}
+	div>ul>li:nth-of-type(n+5){
+		margin-left: 210px;
+	}
+	div>ul>li:nth-of-type(n+9){
+		margin-left: 420px;
+	}
+	div>ul>li:nth-child(4n+5){
+		margin-top: -220px;
+	}
+	div+ul{
+		padding: 0;
+		margin: 15px 0;
+		overflow: hidden;/*overflow改变了ul的结束位置*/
+	}
+	div+ul>li{
+		border-bottom: 1px dotted black;
+		margin-bottom: -1px;
+	}
+	footer{
+		background-color: violet;
+		height: 40px;
+		padding: 0;
+		margin: 0;
+	}
+	footer>p{
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+	div>p{
+		line-height: 24px;
+		padding: 0;
+		margin: 0;
+		text-align: left;
+	}
+	span{
+		background-color: pink;
+		display: inline-block;
+		width: 180px;
+		height: 40px;
+		border: 3px solid black;
+		box-sizing: border-box;
+		font: 16px sans-serif;
+		line-height: 40px;
+		margin: 15px 30px 0 0px;
+	}
+	span:nth-child(3n+3){
+		margin-right: 0;
+	}
+	span:hover{
+		background-color: red;
+	}
 
 </style>
 </head>
 <body>
-	<nav>	</nav>
-	<section>
-		<header>
+	<header>
 		hello world请调整浏览器窗口大小查看效果
-		</header>
+	</header>
+	<section>
 		<main>
 			页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
 		</main>
@@ -106,6 +125,12 @@ p{
 				<li>产品</li>
 				<li>产品</li>
 			</ul>
+		</div>
+		<hr>
+		<div>
+			<p>
+				<span>宽180高40(包含边框)</span><span>水平间隙30px</span><span>垂直间隙15px</span><span>边框宽度3px</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
+			</p>
 		</div>
 		<ul>
 			<li>link</li>
