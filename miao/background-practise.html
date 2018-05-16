@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background-practise</title>
+	<style>
+
+		body{
+			margin: 0 auto;
+		}
+		.logo{
+			background-color: orange;
+			background-image: url(https://wx4.sinaimg.cn/mw690/687ce9bbgy1frdfon2rh9j202s01eq32.jpg);
+			background-repeat: no-repeat;
+			width: 50px;
+			height: 50px;
+			border-radius: 5px;
+			background-position: 100% 100%;
+			transition: background-position .5s;
+
+		}
+		.logo:hover{
+			background-image: url(https://wx4.sinaimg.cn/mw690/687ce9bbgy1frdfon2rh9j202s01eq32.jpg);
+			background-position: 0 0;
+		}
+		a{
+			display: block;
+		}
+		.search{
+			margin-left: calc(100% - 50px);
+			margin-top: -50px;
+			background-color: grey;
+			width: 50px;
+			height: 50px;
+			border: 2px outset;
+			box-sizing: border-box;
+			border-radius: 5px;
+			vertical-align: top;
+			background-image: url(https://www.google.com.hk/images/nav_logo242_hr.png);
+			background-position: -210px -110px;
+		}
+		.search:hover{
+			border: 2px inset;
+			background-image: url(https://www.google.com.hk/images/nav_logo242_hr.png);
+			background-position: -208px -108px;
+			transition: background-position .5s;
+		}
+		.car1{
+			height: 1000px;
+			border-bottom: 1px solid;
+			background-image: url(https://files2.porsche.com/filestore/image/multimedia/none/991-2nd-gt3-modelimage-sideshot/model/76abaf29-df24-11e6-8503-0019999cd470/porsche-model.png);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-attachment: fixed;
+
+		}
+		.car2{
+			height: 1000px;
+			border-bottom: 1px solid;
+			background-image: url(https://files1.porsche.com/filestore/image/multimedia/none/991-2nd-tus-exc-modelimage-sideshot/model/b1c9a880-3a1d-11e7-9f74-0019999cd470/porsche-model.png);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-attachment: fixed;
+		}
+		.car3{
+			height: 1000px;
+			border-bottom: 1px solid;
+			background-image: url(https://files2.porsche.com/filestore/image/multimedia/none/991-2nd-tu-modelimage-sideshot/model/043e94b1-d7ed-11e6-a122-0019999cd470/porsche-model.png);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-attachment: fixed;
+		}
+		h1,h2{
+			font-family: sans-serif;
+			letter-spacing: 15px;
+		}
+		.book{
+			background-image: url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-bg.jpg);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			padding: 80px;
+
+		}
+		main{
+			border: 2px solid seagreen;
+			margin: auto;
+			width: 800px;
+			font: 25px sans-serif;
+			letter-spacing: 10px; 
+			text-align: left;
+			background-image: url(https://meyerweb.com/eric/css/edge/complexspiral/glassy-ripple.jpg);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+		h1{
+			border: 1px solid limegreen;
+			background-color: rgba(94, 163, 54, 0.3);
+			margin-left: 5px;
+			margin-right: 5px;
+			padding-left: 50px;
+		}
+		h2{
+			border:1px solid limegreen;
+			background-color: rgba(94, 163, 54, 0.3); 
+			color: white;
+			padding-left: 20px;
+		}
+		p{
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		footer{
+			width: 334px;
+			height: 80px;
+			margin: 20px auto;
+			background-image: url(https://www.google.com.hk/images/nav_logo242_hr.png);
+			background-position: 0 0;
+		}
+		.tel{
+			width: 50px;
+			height: 47px;
+			border: 2px outset;
+			box-sizing: border-box;
+			border-radius: 5px;
+			vertical-align: top;
+			background-image: url(https://www.google.com.hk/images/nav_logo242_hr.png);
+			background-position: -210px -155px;
+			transition: background-position width height .5s;
+
+		}
+		.tel:active{
+			background-image: url(https://www.google.com.hk/images/nav_logo242_hr.png);
+			background-position: -26px -175px;
+			width: 37px;
+			height: 40px;
+		}
+
+	</style>
+</head>
+<body>
+	<a href="https://www.mi.com" target="_blank"><div class="logo"></div></a>
+	<div class="search"></div>
+	<div class="car1"></div>
+	<div class="car2"></div>
+	<div class="car3"></div>
+
+	<div class="book">
+		<main>
+			<h1>complexspiral <br>distorted</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium perspiciatis asperiores ullam, tempora quae doloribus, voluptas iure laborum eveniet ipsa natus aspernatur quidem harum nostrum deserunt delectus, unde dolorum in.
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quam perspiciatis ex dicta, quibusdam ut. Id unde recusandae esse dignissimos iure mollitia laborum aperiam? Sequi delectus minus libero iusto quas.
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet necessitatibus laudantium est delectus reprehenderit hic maxime, inventore repudiandae culpa quam? Ratione earum dolorum dolorem soluta aliquam possimus commodi numquam voluptatibus?
+			</p>
+			<h2>Hands-on:Things to Examine</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit tempora animi esse asperiores! Quibusdam facere eaque rem doloremque, iure velit nulla quo? Harum molestias officia magnam nam eius nisi illum!
+			</p>
+		</main>
+	</div>
+	<footer></footer>
+	<div class="tel"></div>
+
+</body>
+</html>
