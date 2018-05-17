@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="refresh" content="3"> -->
+	<title>input元素内容的美观</title>
+	<style>
+		div{
+			margin: 20px;
+			padding: 20px;
+		}
+		.class{
+			vertical-align: middle;
+
+		}
+		
+		input{
+			border-radius: 5px;
+			font: 20px sans-serif;
+			vertical-align: baseline;/*默认的是baseline*/
+		}
+		
+		select{
+			height: 52px;
+			width: 120px;
+			font: 20px sans-serif;
+			padding: 10px;
+			line-height: 40px;
+			vertical-align: center;
+		}
+		option{
+			font: 20px sans-serif;
+			line-height: 40px;
+			padding: 10px;
+			vertical-align: center;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="name">姓名：x<input type="text" placeholder="x如：'张三李四'"></div>
+	<div raidio>性别：<label>x<input type="radio" name="male">男</label><label><input type="radio" name="male">女</label>
+	</div>
+	<div class="select">
+		x<select name="" id="">
+			<option value="">0~15岁</option>
+			<option value="">16~25岁</option>
+			<option value="">26~35岁</option>
+			<option value="">36~45岁</option>
+			<option value="">46~60岁</option>
+			<option value="">60岁~</option>
+		</select>
+	</div>
+	<div class="checkbox">
+		<label>x<input name="interest" type="checkbox">运动</label>
+		<label><input name="interest" type="checkbox">摄影</label>
+		<label><input name="interest" type="checkbox">美术</label>
+		<label><input name="interest" type="checkbox">音乐</label>
+		<label><input name="interest" type="checkbox">舞蹈</label>
+	</div>
+</body>
+</html>
