@@ -54,6 +54,23 @@
       overflow-x: scroll;
       height: 100%;
     }
+    .table-col-hover{
+      overflow:hidden;
+    }
+    .table-col-hover td,.table-col-hover th{
+      position: relative;
+    }
+    .table-col-hover td:hover::after,.table-col-hover th:hover::after{
+      content: '';
+      height: 100000px;
+      left: 0;
+      position: absolute;
+      top: -5000px;
+      display: block;
+      width:100%;
+      z-index:-100;
+      background-color: rgb(222,226,230);
+    }
   </style>
 </head>
 <body>
@@ -211,5 +228,36 @@
   </tbody>
 </table>
 </div>
+<div></div>
+<table class="table table-col-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+<div></div>
 </body>
 </html>
