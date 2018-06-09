@@ -285,10 +285,28 @@ the book of css3 到 chapter5
 
 #### 大喵培训第二十五天2018-06-04
 
-the book of css3 到chapter10
+the book of css3 到 chapter10
 
 #### 大喵培训第二十六天2018-06-05
 
 移动端布局 习题讲解
 
 #### 大喵培训第二十七天2018-06-06
+
+the book of css3 到chapter12
+
+#### 大喵培训第二十八天2018-06-07
+
+flex布局
+
+transition 3d
+
+animation
+
+#### 大喵培训第二十八天2018-06-08
+
+考试
+
+#### 2018-06-09
+
+复习浮动、定位、flex、多栏等相关布局知识
