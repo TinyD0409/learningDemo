@@ -143,7 +143,7 @@ body *{
   left: 90px;
 }
 .body{
-  display: flow-root;
+  overflow: hidden;
 }
 .belt{
   width: 354px;
