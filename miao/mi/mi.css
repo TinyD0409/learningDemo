@@ -43,6 +43,7 @@ li{
   height: 42px;
   margin:0 auto;
   padding: 0;
+  background-color: rgb(51,51,51);
 }
 .nav1>ul>li{
   display: inline-block;
@@ -351,6 +352,7 @@ input:focus~ul>li:hover{
   width: 1228px;
   margin:0 auto;
   position: relative;
+  overflow: hidden;
 }
 .nav-slider{
   width: 1228px;
@@ -526,17 +528,61 @@ input:focus~ul>li:hover{
 .sale{
   width: 1226px;
   margin: 0 auto;
+  position: relative;
+}
+.sale>p{
+  width: 1000px;
+  float: left;
+}
+.sale>label{
+ float: right;
+  width :30px;
+  height: 30px;
+  border:1px solid;
+  text-align: center;
+}
+.sale>input{
+  display: none;
 }
 .sale>span{
   display: inline-block;
   width: 234px;
   height: 340px;
-  border:1px solid;
+  border: 1px solid orange;
+}
+.countdown{
+  float: left;
+  margin-right: 14px;
 }
 .countdown~span{
   float: left;
   margin-right: 14px;
 }
+.sale>span:nth-of-type(6){
+  display: none;
+}
+.sale>span:nth-of-type(5){
+  margin-right: 0;
+}
+#move2:checked+*+*+*+*+*+*+span{
+  display: inline-block;
+  margin-left: 14px;
+  margin-right: 0px;
+}
+#move2:checked+*+*+span{
+  display: none;
+}
+#move1:checked+*+span{
+  display:inline-block;
+}
+#move1:checked+*+*+*+*+*+span{
+  display: none;
+}
+/*.countdown+div{
+  overflow: hidden;
+  width: 978px;
+  white-space: nowrap;
+}*/
 .ad-banner{
   width: 1226px;
   height: 120px;
