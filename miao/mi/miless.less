@@ -205,7 +205,8 @@ header{
     &:hover{
       .hot-buy-goods{
         height: 230px;
-        visibility: visible;      
+        visibility: visible;  
+        xz-index: 2;  /*在浏览器设置是生效的，也确实是设置在hover上的，设置为1的时候是在下面竖排查询列表的文字下 背景上的。在这里设置为2就只有智能硬件生效了*/  
     }
   }
   a{
@@ -241,7 +242,16 @@ header{
       }
     }
   }
-  >fieldset{
+  >a{
+    padding:8px; 
+    &:visited{
+      color: black;
+    }
+    &:hover{
+      color:rgb(255,103,0);
+    }
+  }
+  >form{
     position: relative;
     height: 50px;
     width: 300px;
@@ -251,14 +261,14 @@ header{
     border: 1px solid rgb(224,224,224);
     &:hover{
       border-color: rgb(176,176,176);
-      span:last-child{
+      button{
         border-left-color: rgb(176,176,176);
       }
     }
     &:focus{
       border-color: rgb(255,103,0);
       outline: none;
-      span:last-child{
+      button{
         border-left-color: rgb(255,103,0);
       }
     }
@@ -297,21 +307,20 @@ header{
         color: rgb(255,255,255);
       }
     }
-    span:last-child{
+    button{
       width: 50px;
       height: 50px;
-      margin-top: -1px;
+      margin-top: -1px;/*让橙色盖住整个form的边框*/
       margin-right: -1px;
+      background-color: rgb(255,255,255);
       vertical-align: top;
       float: right;
-      text-align: center;
-      line-height: 50px;
       font-size: 20px;
-      border-left: 1px solid rgb(224,224,224);
+      border: 1px solid rgb(224,224,224);
       &:hover{
         background-color: rgb(255,103,0);
         color: rgb(255,255,255);
-        border-left: 1px solid rgb(255,103,0);
+        border:1px solid rgb(255,103,0);
         cursor: pointer;
       }
     }
@@ -407,6 +416,10 @@ header{
 
 /*slider*/
 .nav-slider{
+  /*这个slider要想开页面时没有那个动画，
+  需要结合transform，动画只在离场的时候生效.
+  结合transform后 进场的时候，场里也不再是空白了
+  但是也没解决 页面打开时会看到一次动画进场/立场效果的问题*/
   input{
     position: relative;
     z-index: 1;
@@ -414,11 +427,13 @@ header{
     left: 1050px;
     &:checked{
       +*+*+*+*+*+a{
-        animation:slide .2s linear forwards;
-        @keyframes slide{
-          from{left:1226px;}
-          to{left:0;}
-        }      
+        left: 0;
+        animation:none;
+        // animation:slide .2s linear forwards;
+        // @keyframes slide{
+        //   from{left:1226px;}
+        //   to{left:0;}
+       // }      
       }
     }
   }
@@ -427,6 +442,12 @@ header{
     position: absolute;
     top: 0;
     left: 1226px;
+    transition: .5s; //与transition结合的方法
+    animation:slide .2s linear;//与transition结合的方法
+    @keyframes slide {
+      from{left:0;}
+      to{left:-100%;}
+    }
     img{
        width: 1226px;
        height: 460px;
