@@ -622,7 +622,12 @@ header{
 .main-products>main{
   width: 1226px;
   height: 628px;
+  padding-top:22px; 
   xdisplay: flow-root;
+}
+.main-products>main>p{
+  margin:0;
+  font-size: 20px;
 }
 .main-products>main>div{
   width: 234px;
@@ -650,6 +655,45 @@ header{
 #phones>div:nth-of-type(6){
   margin-left: 14px;
 }
+
+/*手机*/
+
+#phones{
+  p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    span{
+      font-size: 20px;
+    }
+    a{
+      color: black;
+      &::after{
+        content: '>';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        color:white;
+        line-height: 20px;
+        text-align: center;
+        font-weight: bolder;
+        background-color: rgb(176,176,176);
+      }
+      &:visited{
+        color: black;
+      }
+      &:hover{
+        color: rgb(255,103,0);
+       &::after{
+        background-color: rgb(255,103,0);
+        color: white;
+       }     
+      }
+    }
+  }
+}
+
 
 /*下方推荐等内容*/
 .relevant-recommend{
