@@ -630,17 +630,30 @@ header{
   font-size: 20px;
 }
 .main-products>main>div{
+  position: relative;
   width: 234px;
   height: 300px;
   margin-left:14px;
   margin-bottom: 14px;
   float: left;
   border:1px solid;
+  overflow: hidden;
   transform: translate(0,0);
   transition: transform .1s linear;
+  >div{
+    position: absolute;
+    width: 234px;
+    height: 74px;
+    background-color: rgb(255,103,0);
+    bottom: -74px;
+    transition: .2s linear;
+  }
   &:hover{
     transform: translate(0,-3px);
     box-shadow: 1px 3px 20px 0px rgb(176,176,176);
+    >div{
+      bottom: 0;
+    }
   }
 }
 .main-products>main>div:first-of-type{
@@ -895,4 +908,31 @@ footer img{
   float: right;
   margin: 0 3px;
 }
-
+.side{
+  position: fixed;
+  width: 82px;
+  height: 280px;
+  right: 0;
+  bottom: 175px;
+  >a{
+    display: block;
+    height: 92px;
+    width: 82px;
+    border: 1px solid rgb(224,224,224);
+    border-right: none;
+    border-bottom: none;
+    &:visited{
+      color: rgb(176,176,176);
+    }
+    &:hover{
+      color: rgb(225,103,0);
+    }
+    img{
+      width: 30px;
+      height: 30px;
+    }
+    &:last-child{
+      border-bottom: 1px solid rgb(224,224,224);     
+    }
+  }
+}
