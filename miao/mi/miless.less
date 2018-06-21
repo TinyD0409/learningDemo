@@ -65,7 +65,10 @@ header{
       span:nth-child(even){
         color: rgb(66,66,66);
       }
-      >a:last-child{
+      >a:last-child{  
+        /*卷帘效果，父元素overflow：hidden
+        div max-height 50px
+        div:hover max-height 200px*/
         display: inline-block;
         width: 120px;
         height: 40px;
@@ -80,6 +83,7 @@ header{
         ul{
           margin: 0 0;
           xz-index: 50;
+          overflow: hidden;
         }
         ul li{
           width: 320px;
@@ -90,8 +94,8 @@ header{
           position: absolute;
           right: 0;
           top: 38px;
-          font-size: 0;
-          line-height: 0px;
+          xfont-size: 0;
+          line-height: 100px;
           color: rgb(95,95,95);
         }
         &:hover{
@@ -103,7 +107,6 @@ header{
             width: 320px;
             height: 100px;
             font-size: 12px;
-            line-height: 100px;
             box-shadow: 0 0 5px lightgrey;
             xz-index: 50;
           }
