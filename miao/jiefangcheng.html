@@ -1,0 +1,40 @@
+<script type="xx">
+debugger
+  var a = Number(prompt("输入二元一次方程组x平方前的数值："))
+  var b = Number(prompt("输入二元一次方程组x前的数值："))
+  var c = Number(prompt("输入二元一次方程组常数项的数值："))
+  var delt = b**2 - 4*a*c
+  var s_delt=Math.sqrt(delt)
+  x1 = (-b + s_delt)/(2*a)
+  x2 = (-b - s_delt)/(2*a)
+  if (x1 == x2) {
+    document.write("该方程有唯一解:x=" + x1 + "<br>" + "怕是c=0了")
+  }else if (delt > 0) {
+    document.write("该方程有两个解："+"<br>"+"x1="+x1+"<br>"+"x2="+x2)
+  }else {
+    var delt = 4*a*c - b**2
+    var s_delt=Math.sqrt(delt)
+    x1 = (-b + s_delt)/(2*a)
+    x2 = (-b - s_delt)/(2*a)
+    document.write("该方程没有解，有两个虚数解："+"<br>"+"x1="+x1+"i"+"<br>"+"x2="+x2+"i"+"<br>"+"你怕是个智障")
+  }
+</script>
+
+<script>
+  var a = Number(prompt("第一个方程组里未知数x前的数："))
+  var b = Number(prompt("第一个方程组里未知数y前的数："))
+  var c = Number(prompt("第一个方程组里的常量："))
+  var d = Number(prompt("第二个方程组里未知数x前的数："))
+  var e = Number(prompt("第二个方程组里未知数y前的数："))
+  var f = Number(prompt("第二个方程组里的常量："))
+  var x = (b*f - e*c)/(b*d - a*e)
+  var y = (a*f - d*c)/(a*e - b*d)
+  if (a/d==b/e==c/f) {
+    document.write("有无穷解")
+  }else if(a/d==b/e&&(a/d)!=(c/f)){
+    document.write("方程组不成立")
+  }else{
+    document.write("该方程组两个解分别为：" + "<br>" + "x=" + x + "<br>" + "y=" + y)
+  }
+  
+</script>
