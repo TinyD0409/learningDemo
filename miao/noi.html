@@ -1,7 +1,4 @@
 <script  id="ch0103/01">
-  // http://noi.openjudge.cn/ch0103/01/
-  /* 在大部分的在线题库中，都会将A+B问题作为第一题，以帮助新手熟悉平台的使用方法。
-  A+B问题的题目描述如下：给定两个整数A和B，输出A+B的值。保证A、B及结果均在整型范围内。*/
   var a = Number(prompt("A="))
   var a1 = a - parseInt(a)
   var b = Number(prompt("B="))
@@ -13,8 +10,6 @@
   }
 </script>
 <script  id="ch0103/02">
-  // http://noi.openjudge.cn/ch0103/02/
-  /*给定3个整数a、b、c，计算表达式(a+b)*c的值。*/ 
   alert("请输入大于-10000小于10000的数值")
   var a = Number(prompt("a="))
   var b = Number(prompt("b="))
@@ -385,32 +380,7 @@
     console.log("Invalid operator!")
   }
 </script>
-<script id="ch0104/20">
-    var a = Number(prompt("输入二元一次方程组x平方前的数值："))
-  var b = Number(prompt("输入二元一次方程组x前的数值："))
-  var c = Number(prompt("输入二元一次方程组常数项的数值："))
-  var delt = b**2 - 4*a*c
-  var s_delt=Math.sqrt(delt)
-  x1 = (-b + s_delt)/(2*a)
-  x2 = (-b - s_delt)/(2*a)
-  if (!isNaN(a)&&!isNaN(b)&&!isNaN(c)){
-  if (x1 == x2) {
-    document.write("该方程有唯一解:x=" + x1 + "<br>")
-  } else if (delt > 0) {
-    document.write("该方程有两个解："+"<br>"+"x1="+x1+"<br>"+"x2="+x2)
-  } else {
-    var delt = 4*a*c - b**2
-    var s_delt = Math.sqrt(delt)
-    var bb = -b
-    var cc = 2*a
-    x1 = (-b + s_delt + "i")/(2*a) 
-    x2 = (-b - s_delt + "i")/(2*a)
-    document.write("该方程没有解，有两个虚数解：" + "<br>" + "x1=" + "(" + bb + " + " + s_delt + "i" + ")" + "/" + cc + "<br>" + "x2=" + "(" + bb + "-" + s_delt + "i" + ")" + "/" + cc + "<br>")
-  }}else{
-    alert("输入数字啊！")
-    // document.write("该方程没有解，有两个虚数解：" + "<br>" + "x1=" + "(" + -b + s_delt + "i" + "/" + 2*a + ")" + "<br>" + "x2=" + "(" + -b-s_delt + "i" + "/" + 2*a + ")" + "<br>")
-  }
-</script>
+
 <script id="ch0104/21">
   var n = Number(prompt("苹果数"))
   var x = Number(prompt("虫子吃掉一个苹果的小时数"))
