@@ -379,7 +379,31 @@
     console.log("Invalid operator!")
   }
 </script>
-
+<script id="ch0104/20">
+  var a = Number(prompt("输入二元一次方程组x平方前的数值："))
+  var b = Number(prompt("输入二元一次方程组x前的数值："))
+  var c = Number(prompt("输入二元一次方程组常数项的数值："))
+  var delt = b**2 - 4*a*c
+  var s_delt=Math.sqrt(delt)
+  x1 = (-b + s_delt)/(2*a)
+  x2 = (-b - s_delt)/(2*a)
+  if (!isNaN(a)&&!isNaN(b)&&!isNaN(c)){
+  if (x1 == x2) {
+    console.log("该方程有唯一解:x=" + x1 + "<br>")
+  } else if (delt > 0) {
+    console.log("该方程有两个解："+"<br>"+"x1="+x1+"<br>"+"x2="+x2)
+  } else {
+    var delt = 4*a*c - b**2
+    var s_delt = Math.sqrt(delt)
+    var bb = -b
+    var cc = 2*a
+    x1 = (-b + s_delt + "i")/(2*a) 
+    x2 = (-b - s_delt + "i")/(2*a)
+    console.log("该方程没有解，有两个虚数解：" + "<br>" + "x1=" + "(" + bb + " + " + s_delt + "i" + ")" + "/" + cc + "<br>" + "x2=" + "(" + bb + "-" + s_delt + "i" + ")" + "/" + cc + "<br>")
+  }}else{
+    console.log("输入数字啊！")
+  }
+</script>
 <script id="ch0104/21">
   var n = Number(prompt("苹果数"))
   var x = Number(prompt("虫子吃掉一个苹果的小时数"))
@@ -428,7 +452,8 @@
     result = result + s 
   }
   var average = result/n
-  console.log(result + average.toFixed(5))
+  console.log("整数和为：" + result)
+  console.log("平均值为："+ average.toFixed(5))
 </script>
 <script id="ch0105/05">
   var n = +prompt("参与本次考试的人数")
@@ -444,10 +469,12 @@
   console.log(max)
 </script>
 <script id="ch0105/06">
+  //同评委打分系统
   var n = +prompt("序列个数")
-  var max = 0
-  var min
-  for(i = 0; i < n ;i++){
+  var s0 = +prompt("第1个数")
+  var max = s0
+  var min = s0
+  for(i = 1; i < n ;i++){
     s = +prompt("第" + (i+1) +"个数")
     if (s > max){
       max = s 
@@ -473,7 +500,10 @@
     s = s + si
     c = c + ci
   }
-  console.log("金牌总数为：" + a +" 银牌总数为：" + s +" 铜牌总数为：" + c + " 奖牌总数为：" +(a+s+c))
+  console.log("金牌总数为：" + a)
+  console.log("银牌总数为：" + s)
+  console.log("铜牌总数为：" + c)
+  console.log("奖牌总数为：" +(a+s+c))
 </script>
 <script id="ch0105/08">
   var n = +prompt("几边形")
@@ -609,7 +639,22 @@
   console.log(num1+num2)
 </script>
 <script id="ch0105/18">
-  
+  var n = +prompt("多少组临床对照组")
+  var x0 = +prompt("鸡尾酒疗法的临床实验总病例数")
+  var y0 = +prompt("疗效有效的病例数")
+  var c0 = y0/x0
+  for (i = 1; i < n ;i++){
+    var x = +prompt("第"+i+"个疗法临床实验总病例数")
+    var y = +prompt("第"+i+"个疗法疗效有效的病例数")
+    var c = y/x
+    if (c-c0 > 0.05) {
+      console.log("better")
+    } else if (c0-c > 0.05) {
+      console.log("worse")
+    } else {
+      console.log("same")
+    }
+  }
 </script>
 <script id="ch0105/19">
   var n = +prompt("屋顶数")
