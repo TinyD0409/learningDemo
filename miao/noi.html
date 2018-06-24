@@ -3,11 +3,7 @@
   var a1 = a - parseInt(a)
   var b = Number(prompt("B="))
   var b1 = b - parseInt(b)
-  if (a1 = 0 && b1 = 0) {
     console.log(a+b)
-  } else {
-    console.log("您输入的不是整数")
-  }
 </script>
 <script  id="ch0103/02">
   var a = Number(prompt("a="))
@@ -45,20 +41,17 @@
 <script id="ch0103/06">
   var a = Number(prompt("确诊数"))
   var b = Number(prompt("死亡数"))
-  var result = b/a
-  console.log("死亡率为"+result.toFixed(5)*100+"%")
+  var result = b/a*100
+  console.log("死亡率为"+result.toFixed(3)+"%")
 </script>
 <script id="ch0103/07">
-  function equation (a,b,c,d,x){
-    var result = a*x*x*x + b*x*x + c*x +d
-    console.log(result.toFixed(7)) 
-  }
   var a = Number(prompt("a="))
   var b = Number(prompt("b="))
   var c = Number(prompt("c="))
   var d = Number(prompt("d="))
   var x = Number(prompt("x="))
-  equation(a,b,c,d,x)
+  var result = a*x*x*x + b*x*x + c*x +d
+  console.log(result.toFixed(7)) 
 </script>
 <script id="ch0103/08">
   var f = Number(prompt("华氏温度为"))
@@ -109,12 +102,8 @@
   var n = Number(prompt("苹果数"))
   var x = Number(prompt("虫子吃掉一个苹果的小时数"))
   var y = Number(prompt("这些小时过去了"))
-  if(y > n*x){
-    console.log("你的苹果已经被吃光啦")
-  } else {
-    var a = n - Math.ceil(y/n)
-    console.log(a)
-  }
+  var a = n - Math.ceil(y/n)
+  console.log(a)
 </script>
 <script id="ch0103/16">
   var xa = Number(prompt("A点的横坐标 xa="))
@@ -156,7 +145,7 @@
   var a2 = Number(prompt("等差数列的第二项a2="))
   var a = a2 - a1
   var n = Number(prompt("等差数列的第n项an="))
-  console.log(a2 + a*n)
+  console.log(a1 + a*(n-1))
 </script>
 <script id="ch0103/19">
   var A = Number(prompt("正整数A："))
@@ -195,7 +184,7 @@
 </script>
 <script id="ch0104/04">
   var x = prompt("请输入一个字符")
-  var n = charCodeAt(x)
+  var n = x.charCodeAt(0)
   if (n%2 !== 0){
     console.log("YES")
   } else {
@@ -204,6 +193,7 @@
 </script>
 <script id="ch0104/05">
   var a = Number(prompt("第一个整数"))
+  var b = Number(prompt("第二个整数"))
   if (a > b){
     console.log(">")
   } else if (a == b){
@@ -234,7 +224,7 @@
 </script>
 <script id="ch0104/08">
   var num = Number(prompt("输入整数"))
-  if (num%3==0 && num%5==0){
+  if (num%3 === 0 && num%5 === 0){
     console.log(YES)
   } else {
     console.log(NO)
