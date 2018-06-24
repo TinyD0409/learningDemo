@@ -6,7 +6,7 @@
   if (a1 = 0 && b1 = 0) {
     console.log(a+b)
   } else {
-    alert("您输入的不是整数")
+    console.log("您输入的不是整数")
   }
 </script>
 <script  id="ch0103/02">
@@ -17,7 +17,7 @@
   if (a > -10000 && a < 10000 && b > -10000 && b < 10000 && c > -10000 && c < 10000) {
     console.log((a + b)*c)
   } else {
-    alert("请输入大于-10000小于10000的数值")
+    console.log("请输入大于-10000小于10000的数值")
   }
 </script>
 <script  id="ch0103/03">
@@ -28,7 +28,7 @@
   if (a > -10000 && a < 10000 && b > -10000 && b < 10000 && c > -10000 && c < 10000 && c!=0) {
     console.log(Math.floor((a + b)/c))
   } else {
-    alert("请输入大于-10000小于10000且c不等于0的数值")
+    console.log("请输入大于-10000小于10000且c不等于0的数值")
   }
 </script>
 <script id="ch0103/04">
@@ -317,7 +317,8 @@
   if (w<=1000){
     console.log(m+n)
   } else {
-    n = n + Math.ceil((w-1000)/500) * 4 + m
+    n = n + Math.ceil((w-1000)/500) * 4 
+    console.log(n+m)
   }
 </script>
 <script id="ch0104/15">
@@ -365,7 +366,7 @@
   // 可以试下switch
   var x = +prompt("整数一")
   var y = +prompt("整数二")
-  var o = prompt("操作符")
+  var o = +prompt("操作符")
   if (o === "+"){
     console.log(x+y)
   } else if (o === "-"){
