@@ -755,7 +755,7 @@
   //可以从低位到高位输出拼接 判断（模2就是转换成二进制）
   var num = prompt("输入要判断是否是回文数字的数")
   num0 = num
-  result = ""
+  result = "" // 可以每次的result都乘次10
   while (num0 > 0 ){
     result = result + num0%10
     num0 = Math.floor(num0/10) 
@@ -766,24 +766,26 @@
   } else {
     console.log("NO")
   }
-
+// 首位和尾位 逐一对比 对比 Math.floor(width/2)
+// 用 数组的拼接 toString reverse join
   //函数方法表示
   function palindrom(num){
-    num0 = num 
-    result = ""
+    var num0 = num 
+    var digit
+    var result = 0
     do{
       digit = num0%10
       num0 = (num0 - digit)/10
-      result = result + digit
-    } while (num0>=1)
-    return result
+      result = result*10 + digit
+    } while (num0>0)
+    return result === num
   }
-  var  n = +prompt("write a number")
-  if (palindrom(n) == n){
+
+  /*if (palindrom(n) == n){
     console.log("是回文数")
   } else {
     console.log("不是回文数")
-  }
+  }*/
 </script>
 <script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
   /*输入年份与月份，给出该年该月的第一天是星期几。
@@ -872,19 +874,8 @@
           }
         }
       }
-      console.log(sum)  
-      if (sum == num){
-        return true
-      } else {
-        return false
-      }
-    }
-    var n = +prompt("判断是否是完全数的数字")
-    if (completeNumber(n) == true){
-      console.log("是完全数")
-    } else {
-      console.log("不是完全数")
-    }
+      return sum === num 
+    }  
     
 </script>
 <script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数">
@@ -901,9 +892,11 @@
   }
 </script>
 <script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数">
+//利用素数定理 可以提高性能 除了2和3 所有素数都分布在 第1列和第5列（一共6列排列 6n+1 和 6n+5）
+
   var num = +prompt("输入需要判断的数字")
     su = 0
-    for (j = 2; j < num ; j++) {
+    for (j = 2; j < num ; j++) { //j<Math.sqrt(num)
       if (num % j == 0) {
         su+= j
       }
@@ -926,7 +919,7 @@
   }
 </script>
 <script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串">
-  string.fromCharCode(25105)
+  String.fromCharCode(25105)
 </script>
 <script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数">
   m = +prompt("输入第一个数")
