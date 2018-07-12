@@ -1,4 +1,4 @@
-var TinyD0409 = {
+var tinyd0409 = {
   chunk: function(array, size) {
     var result = []
     for (j = 0;j<array.length;j+=size){
