@@ -39,7 +39,7 @@ var tinyd0409 = {
       }
     }
     return array
-  };
+  },
   join: function(array, separator){
     var result = ""  
     if(separator == undefined){
@@ -49,21 +49,21 @@ var tinyd0409 = {
       result = result + separator + array[i]
     }
     return result
-  };
+  },
   last: function(array){
     return array[array.length-1]
   }
 //Math
   add: function(augend, addend){
     return augend + addend
-  };
+  },
 
   ceil: function(number, precision){
 
-  };
+  },
   divide: function(dividend, divisor){
     return dividend/divisor
-  }
+  },
 
 
 
