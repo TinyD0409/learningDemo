@@ -52,7 +52,7 @@ var tinyd0409 = {
   },
   last: function(array){
     return array[array.length-1]
-  }
+  },
 //Math
   add: function(augend, addend){
     return augend + addend
