@@ -12,7 +12,7 @@ var TinyD0409 = {
       result.push(ar)
     }
     return result
-  }
+  },
   compact: function(array){
     for(var i = 0; i < array.length ;i++){
       if(array[i] == undefined||array[i] == null||array[i] == true ||array[i] == false){
@@ -20,10 +20,10 @@ var TinyD0409 = {
       }
     }
     return array
-  }
+  },
   concat: function(array, [values]){
     
-  }
+  },
 
 
 
