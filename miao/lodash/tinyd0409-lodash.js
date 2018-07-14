@@ -25,7 +25,14 @@ var tinyd0409 = {
   concat: function(array, [values]){
     
   },
+  /**
+   * [difference description]
+   * @param  {[type]} array  [description]
+   * @param  {[type]} values [description]
+   * @return {[type]}        [description]
+   */
   difference: function(array, values){
+    //values 是大于等于一的一堆值
     var map = {}
     for (var i = 0;i < values.length ; i++){
       if(values[i] in map){
@@ -40,6 +47,12 @@ var tinyd0409 = {
     }
     return array
   },
+  /**文档格式 自动生成
+   * [join description]
+   * @param  {[type]} array     [description]
+   * @param  {[type]} separator [description]
+   * @return {[type]}           [description]
+   */
   join: function(array, separator){
     var result = ""  
     if(separator == undefined){
@@ -48,6 +61,7 @@ var tinyd0409 = {
     for (var i = 0;i < array.length; i++){
       result = result + separator + array[i]
     }
+    result.splice(0,1)
     return result
   },
   last: function(array){
