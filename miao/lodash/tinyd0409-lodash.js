@@ -55,9 +55,6 @@ var tinyd0409 = {
     }
     return array
   },
-  differenceBy:function(array,...value,function){
-
-  },
   drop:function(array,num){
     if(num == 0){
       return array
@@ -68,7 +65,7 @@ var tinyd0409 = {
       result.push(array[i])
     }
     return result
-  }
+  },
   dropRight:function(array,num){
     if(num == 0){
       return array
@@ -79,7 +76,7 @@ var tinyd0409 = {
       result.push(array[i])
     }
     return result
-  }
+  },
   fill:function (array,value,start,end){
     if(start == undefined){
       start = 0
