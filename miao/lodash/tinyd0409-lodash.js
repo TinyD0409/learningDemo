@@ -17,7 +17,7 @@ var tinyd0409 = {
   },
   compact: function(array){
     for(var i = 0; i < array.length ;i++){
-      if(array[i] == undefined||array[i] == null||array[i] == true ||array[i] == false ||isNaN(array[i] == true)){
+      if(array[i] == undefined||array[i] == null||array[i] == false ||isNaN(array[i] == true)){
         array.splice(i,1)
         i--
       }
@@ -25,9 +25,15 @@ var tinyd0409 = {
     return array
   },
   concat: function(array, ...values){
-    var result = ""
-    arguments.forEach(function(val){result += val})
-    return result 
+    var arg = []
+    for(var i = 0;i < arguments.length;i++){
+      arg.push(arguments[i])
+    }
+    return arg.reduce(
+      function(result,cur,index,array){
+        result.push(cur)
+        return result
+      },[])
   },
   /**
    * [difference description]
@@ -89,6 +95,15 @@ var tinyd0409 = {
     }
     return array
   },
+  filter:function(array,f){
+    return array.reduce(
+      function(result,cur,index,array){
+        if(f(cur,index,array)){
+          result.push(cur)   
+        }
+        return result
+      },[])
+  },
   flatten:function(array){
     var newarray = []
     for(var i = 0; i < array.length; i++){
@@ -99,17 +114,33 @@ var tinyd0409 = {
   },
   join: function(array, separator){
     var result = ""  
+    var str = ""
     if(separator == undefined){
       separator = ","
     }
     for (var i = 0;i < array.length; i++){
       result = result + separator + array[i]
     }
-    result.splice(0,1)
-    return result
+    for(var j = 1; j < result.length; j++){
+      str = str + result[j]
+    }
+    return str
   },
   last: function(array){
     return array[array.length-1]
+  },
+  slice : function(array,start,end){
+    if(start == undefined){
+      start = 0
+    }
+    if(end == undefined){
+      end = array.length
+    }
+    var result = []
+    for (var i = start;i<end;i++){
+      result.push(array[i])
+    }
+    return result
   },
 //Math
   add: function(augend, addend){
@@ -142,6 +173,11 @@ var tinyd0409 = {
   */
   },
   range :function (start,end,step){
+    //只传一个参数，默认是第一个参数
+    if(arguments.length == 1){
+      end = arguments[0]
+      start = undefined
+    }
     if(start == undefined){
       start = 0
     }
@@ -150,10 +186,10 @@ var tinyd0409 = {
     }
     var array = []
     if(end > 0){
-      for (var j = 0,i = start; j < end-1&&i < end; j++,i+= step){
+      for (var j = 0,i = start; j < (end - start)&&i < end; j++,i+= step){
         array.push(i)
       }
-    }else {
+    } else {
       for (var i = start; i > end; i-=Math.abs(step)){
         array.push(i)
       }
@@ -165,7 +201,12 @@ var tinyd0409 = {
     for (var i = 0;i < array.length; i++){
       result = result + array[i]
     }
-    return sum
+    return result
+    /*
+    return array.reduce((pre,cur,index,array) => {
+    pre = pre + cur
+    return pre})
+     */
   },
 
 // 要判断的两个对象 
@@ -179,7 +220,7 @@ var tinyd0409 = {
     if(Array.isArray(value)&&Array.isArray(other)){
       if(value.length == other.length){
         for(var i = 0; i < value.length; i++){
-          if(isEqual(value[i] , other[i])){
+          if(tinyd0409.isEqual(value[i] , other[i])){
           }else {
             return false
           }
@@ -198,9 +239,9 @@ var tinyd0409 = {
       for(var art in other){
         othermap.push(art)
       }
-      if(isEqual(valuemap,othermap)){
+      if(tinyd0409.isEqual(valuemap,othermap)){
         for(var i = 0;i < valuemap.length; i++){
-          if(isEqual(value[valuemap[i]],other[othermap[i]])){
+          if(tinyd0409.isEqual(value[valuemap[i]],other[othermap[i]])){
           }else{
             return false
           }
@@ -209,5 +250,12 @@ var tinyd0409 = {
       }
     }
     return false
+  },
+  map : function (array, f){
+    return array.reduce(
+      function(result,cur,index,array){
+        result.push(f(cur,index,array))
+        return result
+    },[])
   },
 }
