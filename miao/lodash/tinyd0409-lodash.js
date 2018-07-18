@@ -61,6 +61,31 @@ var tinyd0409 = {
     }
     return array
   },
+  differenceBy:function (array,values,iter){
+    var array0 = array.map(iter(item))
+    var values = values.map(iter(item))
+    var arraymap = {}
+    var valuesmap = {}
+    var result = []
+    for(var i = 0;i < array.length;i++){
+      arraymap[i] = iter(array[i])
+    }
+    for(var j = 0;i < values.length;j++){
+      valuesmap[j] = iter(values[j])
+    }
+    for(var key in arraymap){
+      var flag = true
+      for(var target in valuesmap){
+        if(arraymap[key] == valuesmap[target]){
+          flag = false
+        }
+      }
+      if(flag == true){
+        result.push(array[key])  
+      }
+    }
+    return result
+  },
   drop:function(array,num){
     if(num == 0){
       return array
@@ -107,10 +132,21 @@ var tinyd0409 = {
   flatten:function(array){
     var newarray = []
     for(var i = 0; i < array.length; i++){
-      do{
-        array[i]
-      }while(Array.isArray(array) == false)
+      if(Array.isArray(array[i])){
+        for (var j = 0; j < array[i].length;j++){
+          newarray.push(array[i][j])
+        }
+      }else{
+        newarray.push(array[i])
+      }
     }
+    return newarray
+  },
+  flattenDeep:function(array){
+    
+  },
+  flattenDepth: function (array,n){
+
   },
   join: function(array, separator){
     var result = ""  
@@ -207,6 +243,15 @@ var tinyd0409 = {
     pre = pre + cur
     return pre})
      */
+    //return tinyd0409.sumBy(array,item=>item)
+  },
+  sumBy:function(ary,iter){
+    //array就是数组，这个数组里面可能是对象，可能是数值
+    var result = 0
+    for (var i = 0;i < ary.length;i++){
+      result+=iter(ary[i])
+    }
+    return result 
   },
 
 // 要判断的两个对象 
@@ -257,5 +302,23 @@ var tinyd0409 = {
         result.push(f(cur,index,array))
         return result
     },[])
+  },
+  property:function(propName){
+    return function(obj){
+        return obj[propName]
+    }
+  },
+  identity:function (value){
+    return value
+  },
+  matches : function(obj){
+    return function(obj2){
+      for (var key in obj){
+        if(obj[key] !== obj2[key]){
+          return false
+        }
+      }
+      return true
+    }
   },
 }

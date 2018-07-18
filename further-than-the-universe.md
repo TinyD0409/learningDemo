@@ -539,6 +539,8 @@ lodash
 
 高阶函数（filter map foreach reduce)
 
-#### 2018-07-18
+#### 大喵培训第四十七天 2018-07-18
 
 自习
+
+lodash 函数方法的讲解
