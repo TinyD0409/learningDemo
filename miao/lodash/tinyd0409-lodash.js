@@ -62,6 +62,7 @@ var tinyd0409 = {
     return array
   },
   differenceBy:function (array,values,iter){
+    //（array,...args)判断最后一项是否是函数
     var array0 = array.map(iter(item))
     var values = values.map(iter(item))
     var arraymap = {}
@@ -139,14 +140,35 @@ var tinyd0409 = {
       }else{
         newarray.push(array[i])
       }
-    }
+    } 
     return newarray
   },
   flattenDeep:function(array){
-    
+    var result = []
+    for(var i = 0; i < array.length; i++){
+      if(Array.isArray(array[i])){
+        var tmp = tinyd0409.flattenDeep(array[i])
+        result = [...result,...tmp]
+      }else {
+        result.push(array[i])
+      }  
+    }
+    return result
   },
   flattenDepth: function (array,n){
-
+    var result = []
+    if(n == 0){
+      return [...array]
+    }
+    for(var i = 0; i < array.length; i++){
+      if(Array.isArray(array[i])){
+        var tmp = tinyd0409.flattenDepth(array[i],n-1)
+        result = [...result,...tmp]
+      }else {
+        result.push(array[i])
+      }  
+    }
+    return result
   },
   join: function(array, separator){
     var result = ""  
@@ -193,7 +215,7 @@ var tinyd0409 = {
     return function(...args){//接受所有需要传给f的参数
      return !f(...args)
     }
-  //调用时候相当于 fc = n(f)
+  //调用时候相当于 fc = negate(f)
   //fc(要传给函数f的变量)
   /*
     function f (bool){return bool}
@@ -319,6 +341,34 @@ var tinyd0409 = {
         }
       }
       return true
+    }
+  },
+  matchesProperty:function (ary){
+    return function(obj){
+      for(var i = 0;i < ary.length;i+=2){
+        var key = ary[i]
+        var val = ary[i+1]
+        if(obj[key] !== val){
+          return false
+        }
+      }
+      return true
+    }
+  },
+  ary :function (func,n){
+    //最多给原函数传n个函数
+    return function(...args){
+      return func(...args,slice(0,n))
+    }
+  },
+  spread: function (func){
+    return function(ary){
+      return func(...args)
+    }
+  },
+    flip: function (func){
+    return function (...args){
+      return func(...args.reverse())
     }
   },
 }
