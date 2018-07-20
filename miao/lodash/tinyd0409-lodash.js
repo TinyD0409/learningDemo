@@ -276,7 +276,8 @@ var tinyd0409 = {
     return result 
   },
 
-// 要判断的两个对象 
+// 要判断的两个对象
+// 乱序的对象也要判断出来
   isEqual: function(value,other){
     if(value === other){
       return true
@@ -304,11 +305,11 @@ var tinyd0409 = {
         valuemap.push(atr)
       }
       for(var art in other){
-        othermap.push(art)
+        othermap.push(atr)
       }
       if(tinyd0409.isEqual(valuemap,othermap)){
         for(var i = 0;i < valuemap.length; i++){
-          if(tinyd0409.isEqual(value[valuemap[i]],other[othermap[i]])){
+          if(tinyd0409.isEqual(value[valuemap[i]],other[valuemap[i]])){
           }else{
             return false
           }
