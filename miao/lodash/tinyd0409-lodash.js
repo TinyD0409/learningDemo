@@ -17,7 +17,7 @@ var tinyd0409 = {
   },
   compact: function(array){
     for(var i = 0; i < array.length ;i++){
-      if(array[i] == undefined||array[i] == null||array[i] == false ||isNaN(array[i] == true)){
+      if(array[i] == undefined||array[i] == null||array[i] == ""||array[i] == false ||isNaN(array[i] == true)){
         array.splice(i,1)
         i--
       }
@@ -120,6 +120,18 @@ var tinyd0409 = {
       array[i] = value
     }
     return array
+  },
+  findIndex:function(array,wanttofind = tinyd0409.identity,fromindex = 0){
+    array0 = array.slice(fromindex)
+    var flag = -1
+    if(array0.some(function iter(item,index){
+      flag = index+fromindex
+      return wanttofind(item)
+    })){
+      return flag
+    }else{
+      return -1 
+    }
   },
   filter:function(array,f){
     return array.reduce(
@@ -307,7 +319,7 @@ var tinyd0409 = {
       for(var art in other){
         othermap.push(atr)
       }
-      if(tinyd0409.isEqual(valuemap,othermap)){
+      if(valuemap.length === othermap.length){
         for(var i = 0;i < valuemap.length; i++){
           if(tinyd0409.isEqual(value[valuemap[i]],other[valuemap[i]])){
           }else{
@@ -362,12 +374,17 @@ var tinyd0409 = {
       return func(...args,slice(0,n))
     }
   },
+  unary:function(f){
+    return function(value){
+      return f(value)
+    }
+  },
   spread: function (func){
     return function(ary){
       return func(...args)
     }
   },
-    flip: function (func){
+  flip: function (func){
     return function (...args){
       return func(...args.reverse())
     }
