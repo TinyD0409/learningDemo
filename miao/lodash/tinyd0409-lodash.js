@@ -121,16 +121,67 @@ var tinyd0409 = {
     }
     return array
   },
-  findIndex:function(array,wanttofind = tinyd0409.identity,fromindex = 0){
-    array0 = array.slice(fromindex)
-    var flag = -1
-    if(array0.some(function iter(item,index){
-      flag = index+fromindex
-      return wanttofind(item)
-    })){
-      return flag
+  findIndex:function(array,wanttofind,fromindex = 0){
+    var t = wanttofind
+    if(Array.isArray(wanttofind)){
+      wanttofind = tinyd0409.matchesProperty(t)
+    }else if(typeof wanttofind == "object"){
+      wanttofind = tinyd0409.matches(t)
+    }else if(wanttofind == undefined){
+      wanttofind = tinyd0409.identity(t)
+    }else if(typeof wanttofind == "string"){
+      wanttofind = tinyd0409.property(t)
+    } else {
+      wanttofind = wanttofind
+    }
+    for(var i = fromindex; i < array.length; i++){
+      if(wanttofind(array[i])){
+        return i
+        break
+      }
+    }
+    return -1
+  },
+  head:function(array){
+    return array[0]
+  },
+  indexOf:function(array,target,fromindex = 0){
+    for(var i = fromindex; i < array.length;i++){
+      if(array[i] == target){
+        return i
+      }
+    }
+    return -1
+  },
+  initial:function(array){
+    return array.slice(0,array.length-1)
+  },
+  intersection:function(...array){
+    //(...ary).reduce(function(pre,cur){})
+    if(arguments.length == 1){
+      return arguments[0]
     }else{
-      return -1 
+      var result = []
+      for(var j = 0;j < arguments[0].length;j++){
+        var flag = false
+        for(var i = 1;i < arguments.length;i++){
+          for(var val of arguments[i]){
+            if(val === arguments[0][j]){
+              flag = true
+              break
+            }else{
+              flag = false
+            }
+          }
+          if(flag == false){
+            break
+          }
+        }
+        if(flag == true){
+          result.push(arguments[0][j])
+        }
+      }
+      return result
     }
   },
   filter:function(array,f){
