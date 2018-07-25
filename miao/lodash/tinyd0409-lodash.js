@@ -29,11 +29,7 @@ var tinyd0409 = {
     for(var i = 0;i < arguments.length;i++){
       arg.push(arguments[i])
     }
-    return arg.reduce(
-      function(result,cur,index,array){
-        result.push(cur)
-        return result
-      },[])
+    return arg.flatten
   },
   /**
    * [difference description]
@@ -109,38 +105,19 @@ var tinyd0409 = {
     }
     return result
   },
-  fill:function (array,value,start,end){
-    if(start == undefined){
-      start = 0
+  fromPairs:function(paris){
+    var result = {}
+    for(var i = 0;i < paris.length;i++){
+      result[paris[i][0]] = paris[i][1]
     }
-    if(end == undefined){
-      end = array.length
-    }
-    for(var i = start; i < end; i++){
-      array[i] = value
-    }
-    return array
+    return result
   },
-  findIndex:function(array,wanttofind,fromindex = 0){
-    var t = wanttofind
-    if(Array.isArray(wanttofind)){
-      wanttofind = tinyd0409.matchesProperty(t)
-    }else if(typeof wanttofind == "object"){
-      wanttofind = tinyd0409.matches(t)
-    }else if(wanttofind == undefined){
-      wanttofind = tinyd0409.identity(t)
-    }else if(typeof wanttofind == "string"){
-      wanttofind = tinyd0409.property(t)
-    } else {
-      wanttofind = wanttofind
+  toParis:function(paris){
+    var result = []
+    for(keys in paris){
+      result.push([keys,paris[keys]])
     }
-    for(var i = fromindex; i < array.length; i++){
-      if(wanttofind(array[i])){
-        return i
-        break
-      }
-    }
-    return -1
+    return result
   },
   head:function(array){
     return array[0]
@@ -249,6 +226,91 @@ var tinyd0409 = {
   },
   last: function(array){
     return array[array.length-1]
+  },
+  lastIndexOf:function(array,value,fromindex = array.length-1){
+    for(var i = fromindex ; i>=0 ; i--){
+      if(array[i] === value){
+        return i
+      }
+    }
+    return -1
+  },
+  nth:function (array,index){
+    let l = array.length
+    return array[(index+l)%l]
+  },
+  pull:function (array,...args){
+    let a = [] 
+    for(let j = 1; j < arguments.length;j++){
+      a.push(arguments[j])
+    }
+    return array.filter(item => {
+      for(let i = 0;i < a.length;i++){
+        if(item == a[i]){
+          return false
+        }
+      }
+      return true
+    })
+  },
+  pullAll:function (array,values){
+    return array.filter(item => {
+      for(let i = 0;i < values.length;i++){
+        if(item == values[i]){
+          return false
+        }
+      }
+      return true
+    })
+  },
+  fill:function (array,value,start,end){
+    if(start == undefined){
+      start = 0
+    }
+    if(end == undefined){
+      end = array.length
+    }
+    for(var i = start; i < end; i++){
+      array[i] = value
+    }
+    return array
+  },
+  findIndex:function(array,wanttofind,fromindex = 0){
+    var t = wanttofind
+    if(Array.isArray(wanttofind)){
+      wanttofind = tinyd0409.matchesProperty(t)
+    }else if(typeof wanttofind == "object"){
+      wanttofind = tinyd0409.matches(t)
+    }else if(wanttofind == undefined){
+      wanttofind = tinyd0409.identity(t)
+    }else if(typeof wanttofind == "string"){
+      wanttofind = tinyd0409.property(t)
+    } else {
+      wanttofind = wanttofind
+    }
+    for(var i = fromindex; i < array.length; i++){
+      if(wanttofind(array[i])){
+        return i
+        break
+      }
+    }
+    return -1
+  },
+  remove:function(array,f){
+    var result = array
+    tinyd0409.pullAll(array,result.filter(f))   
+    return result.filter(f)
+  },
+  reverse:function(array){
+    return array.reverse()
+    /*
+    let l = array.length
+    for(var i = 0;i <= l/2;i++){
+      var tmp = array[i]
+      array[i] = array[l-1-i]
+      array[l-1-i] = tmp
+    }
+    return array*/
   },
   slice : function(array,start,end){
     if(start == undefined){
@@ -422,7 +484,7 @@ var tinyd0409 = {
   ary :function (func,n){
     //最多给原函数传n个函数
     return function(...args){
-      return func(...args,slice(0,n))
+      return func(...args,tinyd0409.slice(...args,0,n))
     }
   },
   unary:function(f){
@@ -430,11 +492,13 @@ var tinyd0409 = {
       return f(value)
     }
   },
-  spread: function (func){
-    return function(ary){
-      return func(...args)
+  /*spread: function (func,start = 0){
+  say(['fred', 'hello']),
+    //返回一个函数 这个函数和func功能一样，但接收数组参数
+    return function (func,...args){
+      apply(,...args)
     }
-  },
+  },*/
   flip: function (func){
     return function (...args){
       return func(...args.reverse())
