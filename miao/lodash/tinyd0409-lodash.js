@@ -235,7 +235,8 @@ var tinyd0409 = {
     }
     return -1
   },
-  nth:function (array,index){
+  nth:function (array,index = 0){
+    //递归一下 负数的特别大的话
     let l = array.length
     return array[(index+l)%l]
   },
@@ -481,10 +482,12 @@ var tinyd0409 = {
       return true
     }
   },
-  ary :function (func,n){
+
+  //function.length = 参数个数
+  ary :function (func,n = func.length){
     //最多给原函数传n个函数
     return function(...args){
-      return func(...args,tinyd0409.slice(...args,0,n))
+      return func(...args.slice(0,n))
     }
   },
   unary:function(f){
@@ -492,13 +495,12 @@ var tinyd0409 = {
       return f(value)
     }
   },
-  /*spread: function (func,start = 0){
-  say(['fred', 'hello']),
-    //返回一个函数 这个函数和func功能一样，但接收数组参数
-    return function (func,...args){
-      apply(,...args)
+  //返回一个函数 这个函数和func功能一样，但接收数组参数
+  spread: function (func,start = 0){
+    return function (ary){
+      func.apply(null,ary)
     }
-  },*/
+  },
   flip: function (func){
     return function (...args){
       return func(...args.reverse())
