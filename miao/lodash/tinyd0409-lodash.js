@@ -506,4 +506,25 @@ var tinyd0409 = {
       return func(...args.reverse())
     }
   },
+  assign:function(){
+
+  },
+  merge:function(){
+
+  },
+  forOwn:function(){
+
+  },
+  forOwnRight:function(){
+
+  },
+  keys:function(){
+
+  },
+  entries:function(){
+
+  },
+  values:function(){
+
+  },
 }
