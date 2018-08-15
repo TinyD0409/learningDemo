@@ -457,6 +457,12 @@ var tinyd0409 = {
         return obj[propName]
     }
   },
+  /*get:function(name,obj){
+    return obj[name]
+  },
+  function property (){
+    return get.bind(null,name)
+  }*/
   identity:function (value){
     return value
   },
@@ -470,6 +476,14 @@ var tinyd0409 = {
       return true
     }
   },
+  /*
+    function matches(src){
+      isMatches.bind(null,obj) obj是不是在src里
+      return function(obj){
+        
+      }
+    },
+   */
   matchesProperty:function (ary){
     return function(obj){
       for(var i = 0;i < ary.length;i+=2){
@@ -495,10 +509,18 @@ var tinyd0409 = {
       return f(value)
     }
   },
+  uniq:function (ary){
+    return Array.from(new Set(ary)) 
+  },
+  /*uniqBy:function (ary,iteratee=this.identity){
+    for (let i = 0;i i < ary.length;i++){
+      iteratee(ary[i])
+    }
+  },*/
   //返回一个函数 这个函数和func功能一样，但接收数组参数
-  spread: function (func,start = 0){
+  spread: function (func){
     return function (ary){
-      func.apply(null,ary)
+      return func.apply(null,...ary.slice(start))
     }
   },
   flip: function (func){
@@ -506,25 +528,123 @@ var tinyd0409 = {
       return func(...args.reverse())
     }
   },
-  assign:function(){
-
+  //可以用 for of 
+  assign:function(object,...exist){
+    for(var i = 1;i < arguments.length;i++){
+      for( var key in arguments[i]){
+        object[key] = arguments[i][key]
+      }
+    }
+    return object
   },
-  merge:function(){
-
+  isPrimitive:function(val){
+    var type = typeof val
+    if(val === null){
+      return true
+    }
+    switch(type){
+      case 'number':
+      case 'string':
+      case 'boolean':
+      case 'undefined':
+        return true
+    }
+    return false
   },
-  forOwn:function(){
-
+  merge:function(target,...objs){
+    //应该也考虑数组对象
+    for(var obj of objs){
+      for(var key in obj){
+        if(this.isPrimitive(obj[key])){
+          target[key] = obj[key]
+        }else{
+          if(key in target){
+            target[key] = merge(target[key],obj[key])
+          } else {
+            target[key] = merge({},obj[key])
+          }
+        }
+      } 
+    }
+    return target
+  },
+  cloneDeep : function(obj){
+    //lodash里都考虑了带环对象
+    var result = {}
+    for(var key in obj){
+      if(typeof obj[key] === 'object') {
+        result[key] = cloneDeep(obj[key])
+      }else {
+        result[key] = obj[key]
+      }
+    }
+    return result 
+  },
+  forOwn:function(object,iteratee = this.identity){
+  //var hasOwn = Object.prototype.hasOwnProperty 这样写可以节省if判断的时间
+  //var hasOwn = Function.call.bind(Object.prototype.hasOwnProperty,object)
+    for(var key in object){
+      //要考虑object如果有一个自有属性就叫hasOwnProperty的情况
+      if(Object.prototype.hasOwnProperty.call(object,key)){
+        iteratee(object[key],key,object)
+      }
+    }
+    return object  
   },
   forOwnRight:function(){
-
+  //倒序遍历 递归 数组可以 对象不可以
+    var keys = Object.keys(object).reverse()
+    var hasOwn = Object.prototype.hasOwnProperty
+    for(var key of keys){ //for of可以遍历数组的每一个值 性能差 lodash是朴素的for循环
+      //要考虑object如果有一个自有属性就叫hasOwnProperty的情况
+      if(hasOwn.call(object,key)){
+        iteratee(object[key],key,object)
+      }
+    }
+    /*for(var j = 0; j < keys.length; j++){
+      if(hasOwn(object[keys[j]])){
+        iteratee(object[keys[j]],key,object)
+      }
+    }*/
+    return object  
   },
-  keys:function(){
-
+  keys:function(object){
+    var result = []
+    if(Array.isArray(object)){
+      for (var i = 0;i < object.length;i++){
+        result.push(i)
+      }
+    }else{
+      for(key in object){
+        result.push(key)
+      }
+    }
+    return result 
   },
   entries:function(){
 
   },
-  values:function(){
-
+  values:function(obj){
+    var result = []
+    if(Array.isArray(obj)){
+      for (var i = 0;i < obj.length; i++){
+        result.push(obj[i])
+      }
+    } else {
+      for(key in obj){
+        result.push(obj[key])
+      }
+    }
+    return result 
+  },
+  curry : function (){},
+  after:function(n,func){
+    var count = 0
+    return function(...args){
+      count++
+      if(count >= n){
+        return func(...args)
+      }
+    }
   },
 }
