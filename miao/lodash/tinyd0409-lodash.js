@@ -112,9 +112,10 @@ var tinyd0409 = {
     }
     return result
   },
-  toParis:function(paris){
+  toPairs:function(paris){
     var result = []
     for(keys in paris){
+      if(paris.hasOwnProperty(keys))
       result.push([keys,paris[keys]])
     }
     return result
@@ -532,11 +533,14 @@ var tinyd0409 = {
   assign:function(object,...exist){
     for(var i = 1;i < arguments.length;i++){
       for( var key in arguments[i]){
-        object[key] = arguments[i][key]
+        if(arguments[i].hasOwnProperty(key)){
+          object[key] = arguments[i][key]
+        }
       }
     }
     return object
   },
+
   isPrimitive:function(val){
     var type = typeof val
     if(val === null){
@@ -559,9 +563,9 @@ var tinyd0409 = {
           target[key] = obj[key]
         }else{
           if(key in target){
-            target[key] = merge(target[key],obj[key])
+            target[key] = this.merge(target[key],obj[key])
           } else {
-            target[key] = merge({},obj[key])
+            target[key] = this.merge({},obj[key])
           }
         }
       } 
@@ -608,6 +612,112 @@ var tinyd0409 = {
     }*/
     return object  
   },
+  functions:function (obj){
+     var result = []
+    if(Array.isArray(object)){
+      for (var i = 0;i < object.length;i++){
+        result.push(i)
+      }
+    }else{
+      for(key in object){
+        if (object.hasOwnProperty(key)){
+          result.push(key) 
+        }
+      }
+    }
+    return result
+  },
+  functionsIn:function (obj){
+    var result = []
+    if(Array.isArray(object)){
+      for (var i = 0;i < object.length;i++){
+        result.push(i)
+      }
+    }else{
+      for(key in object){
+          result.push(key) 
+      }
+    }
+    return result
+  },
+  get:function (object, path, def = "default"){
+    if(typeof path == "string"){
+      var pm = []
+      var tmps = []
+      for(var i = 0;i < path.length; i++){
+        var w = path[i]
+        if(w == "["){
+          if(tmps.length !== 0){
+            pm.push(tmps.join("")) 
+          }
+          tmps = []
+        }else if (w == "]"){
+          pm.push(tmps.join(""))
+          tmps = []
+        }else if(w == "."){
+          if(tmps.length !== 0){
+            pm.push(tmps.join(""))
+          }
+          tmps = []
+        }else{
+          tmps.push(w)
+        }
+      }
+      if(tmps.length !== 0){
+        pm.push(tmps.join(""))
+      }
+    }else{
+      var pm = path
+    }
+    var tmpo = object
+    for(var j = 0;j < pm.length; j++){
+      tmpo = tmpo[pm[j]]
+      if(tmpo){
+      }else{
+        return def
+      }
+    }
+    return tmpo
+  },
+  has : function (object, path, def = "default"){
+    if(typeof path == "string"){
+      var pm = []
+      var tmps = []
+      for(var i = 0;i < path.length; i++){
+        var w = path[i]
+        if(w == "["){
+          if(tmps.length !== 0){
+            pm.push(tmps.join("")) 
+          }
+          tmps = []
+        }else if (w == "]"){
+          pm.push(tmps.join(""))
+          tmps = []
+        }else if(w == "."){
+          if(tmps.length !== 0){
+            pm.push(tmps.join(""))
+          }
+          tmps = []
+        }else{
+          tmps.push(w)
+        }
+      }
+      if(tmps.length !== 0){
+        pm.push(tmps.join(""))
+      }
+    }else{
+      var pm = path
+    }
+    var tmpo = object
+    for(var j = 0;j < pm.length; j++){
+      tmpo = tmpo[pm[j]]
+      if(tmpo){
+      }else{
+        return false
+      }
+    }
+    return true
+  },
   keys:function(object){
     var result = []
     if(Array.isArray(object)){
@@ -616,7 +726,9 @@ var tinyd0409 = {
       }
     }else{
       for(key in object){
-        result.push(key)
+        if (object.hasOwnProperty(key)){
+          result.push(key) 
+        }
       }
     }
     return result 
@@ -632,7 +744,9 @@ var tinyd0409 = {
       }
     } else {
       for(key in obj){
-        result.push(obj[key])
+        if(obj.hasOwnProperty(key)){
+          result.push(obj[key]) 
+        }
       }
     }
     return result 
