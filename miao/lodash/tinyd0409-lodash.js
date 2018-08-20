@@ -614,12 +614,12 @@ var tinyd0409 = {
   },
   functions:function (obj){
      var result = []
-    if(Array.isArray(object)){
-      for (var i = 0;i < object.length;i++){
+    if(Array.isArray(obj)){
+      for (var i = 0;i < obj.length;i++){
         result.push(i)
       }
-    }else{
-      for(key in object){
+    } else {
+      for(key in obj){
         if (object.hasOwnProperty(key)){
           result.push(key) 
         }
@@ -629,12 +629,12 @@ var tinyd0409 = {
   },
   functionsIn:function (obj){
     var result = []
-    if(Array.isArray(object)){
-      for (var i = 0;i < object.length;i++){
+    if(Array.isArray(obj)){
+      for (var i = 0;i < obj.length;i++){
         result.push(i)
       }
     }else{
-      for(key in object){
+      for(key in obj){
           result.push(key) 
       }
     }
@@ -679,7 +679,7 @@ var tinyd0409 = {
     }
     return tmpo
   },
-  has : function (object, path, def = "default"){
+  has : function (object, path){
     if(typeof path == "string"){
       var pm = []
       var tmps = []
