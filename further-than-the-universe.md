@@ -896,3 +896,19 @@ webpack
 习题 downloadonebyone
 
 `undefined` 没有意义的意义都没有
+
+#### 大喵培训第八十四天 2018-09-13
+
+昨天内容复习 async
+
+作业讲解
+
+jQuery里queue的实现
+
+阻止特定字母的输入框
+
+选项卡切换
+
+swap
+
+拖拽功能
