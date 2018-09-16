@@ -917,3 +917,15 @@ swap
 
 Promise
 
+#### 2018-09-15
+
+复习promise
+
+#### 2018-09-16
+
+复习 downloadOneByOne
+
+复习promise方法的实现
+
+复习XMLHTTPRequire
+预习node 
