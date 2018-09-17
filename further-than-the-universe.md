@@ -928,4 +928,13 @@ Promise
 复习promise方法的实现
 
 复习XMLHTTPRequire
+
 预习node 
+
+#### 大喵培训第八十六天 2018-09-17
+
+介绍node
+
+node的模块
+
+node的npm
