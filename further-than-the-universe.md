@@ -938,3 +938,20 @@ Promise
 node的模块
 
 node的npm
+
+#### 大喵培训第八十七天 2018-09-18
+
+复习昨天内容
+
+继续阅读node文档，讲解重要的node模块
+
+文件模块
+
+path模块
+
+querystring
+
+buffer模块
+
+EventEmitter
+
