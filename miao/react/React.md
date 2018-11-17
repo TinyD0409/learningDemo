@@ -75,7 +75,7 @@ render函数就是一个生命周期函数。（constructor其实也是，但它
 
 
 
-![](/react生命周期.png)
+![](./react生命周期.png)
 
 
 
