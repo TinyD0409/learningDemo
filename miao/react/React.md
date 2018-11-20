@@ -490,7 +490,7 @@ react中 循环渲染的值  react不会自动帮你解析你的html代码  不�
 `<li dangerouslySetInnerHTML={{__html:item}}>`
 
   返回字符串数据的时候 可以应用这个属性
-
+  应用这个属性的 dom 节点间不可以有任何元素
 
 
 #### react中有关性能优化的点
